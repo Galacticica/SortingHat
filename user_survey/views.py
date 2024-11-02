@@ -1,10 +1,15 @@
+'''
+For each of the following views, it stores the answer that the user selects to a session based user_response object
+'''
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .forms import *
 from .models import UserResponse
 from .helpers import get_user_response, save_user_response
-# Create your views here.
+
+
 
 
 

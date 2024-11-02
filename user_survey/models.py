@@ -1,5 +1,8 @@
 
 class UserResponse():
+    '''
+    This is a model to define a session based object showing the responses that the user selected during the questionnaire
+    '''
     def __init__(self):
         self.majors = []
         self.price_range = None

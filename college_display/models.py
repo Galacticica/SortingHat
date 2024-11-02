@@ -9,6 +9,7 @@ class PriceRange(models.Model):
 class Activity(models.Model):
     club = models.CharField(max_length=255)
     category = models.CharField(max_length=255, default='Miscellaneous')
+    
     def __str__(self):
         return self.club
     

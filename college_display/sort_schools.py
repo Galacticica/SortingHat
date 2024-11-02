@@ -6,6 +6,9 @@ from django.db.models import Q
 
 
 def match(request):
+    '''
+    This function takes all of the colleges in the database and filters them based on the user's responses to the questionnaire
+    '''
     colleges = College.objects.all()
     user_response = get_user_response(request)
     colleges = filter_by_major(colleges, user_response)
