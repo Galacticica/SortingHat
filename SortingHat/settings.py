@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'college_display.apps.CollegeDisplayConfig',
+    'user_survey.apps.UserSurveyConfig',
 ]
 
 MIDDLEWARE = [
