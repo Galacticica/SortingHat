@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>{{question}}</h1>
+    {% if description %}
+    <h2>{{description}}</h2>
+    {% endif %}
     <form method="GET">
         {{ form }}
         <button type="submit">{{submit}}</button>
