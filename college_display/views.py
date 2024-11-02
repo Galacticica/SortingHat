@@ -3,8 +3,6 @@ from django.http import HttpResponse
 from django.template import loader
 
 from .models import College
-from user_survey.models import UserResponse
-from user_survey.helpers import get_user_response
 from .sort_schools import match, matching_majors, matching_activities
 
 def index(request):
