@@ -10,7 +10,8 @@
     {% if description %}
     <h2>{{description}}</h2>
     {% endif %}
-    <form method="GET">
+    <form method="POST">
+        {% csrf_token %}
         {{ form }}
         <button type="submit">{{submit}}</button>
     </form>
