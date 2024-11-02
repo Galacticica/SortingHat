@@ -106,7 +106,23 @@ def InStateFormView(request):
         else:
             user_response.in_state = False
         save_user_response(request, user_response)
+        return redirect(PopulationFormView)
+    context = {"question" : question, "form" : form, "submit" : search_button_text}
+    return HttpResponse(template.render(context, request))
+
+def PopulationFormView(request):
+    question = "How many students are you looking for?"
+    form = PopulationSearch(request.POST)
+    template = loader.get_template("user_survey/question.html")
+    search_button_text = "Submit"
+    user_response = get_user_response(request)
+    if request.method == 'POST' and form.is_valid():
+        print(form.cleaned_data['pop_query'])
+        user_response.population_range = form.cleaned_data['pop_query']
+        save_user_response(request, user_response)
+        print(user_response.population_range)
         return redirect('index')
     context = {"question" : question, "form" : form, "submit" : search_button_text}
     return HttpResponse(template.render(context, request))
+
 

@@ -103,3 +103,14 @@ class CityStateSearch(forms.Form):
 
 class InStateSearch(forms.Form):
     in_state_query = forms.ChoiceField(choices=yes_no_choice, widget=forms.RadioSelect, label="")
+
+
+class PopulationSearch(forms.Form):
+    pop_ranges = [
+        ('0 999', 'Less than 1000 people'),
+        ('1000 4999', '1000 - 5000 people'),
+        ('5000 9999', '5000 - 10,000 people'),
+        ('10000 24999', '10,000 - 25,000 people'),
+        ('25000 10000000', 'More than 25,000 people')
+    ]
+    pop_query = forms.ChoiceField(choices=pop_ranges, label="")

@@ -12,6 +12,7 @@ def match(request):
     colleges = filter_by_price(colleges, user_response)
     colleges = filter_by_activity(colleges, user_response)
     colleges = filter_by_location(colleges, user_response)
+    colleges = filter_by_population(colleges, user_response)
     return colleges
 
 def filter_by_major(colleges, user_response):
@@ -33,6 +34,12 @@ def filter_by_location(colleges, user_response):
         colleges = colleges.filter(state=user_response.state)
     else:
         colleges = colleges.exclude(state=user_response.state)
+    return colleges
+
+def filter_by_population(colleges, user_response):
+    print(user_response.population_range)
+    min_pop, max_pop = (user_response.population_range).split()
+    colleges = colleges.filter(population__gte=min_pop, population__lte=max_pop)
     return colleges
 
 

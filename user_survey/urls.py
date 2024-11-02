@@ -8,5 +8,6 @@ urlpatterns = [
     path('question_4/', views.ArtsFormView, name='Arts'),
     path('question_5/', views.ProfessionalClubFormView, name='Professional Clubs'),
     path('question_6/', views.HomeLocationFormView, name='HomeLocation'),
-    path('question_7/', views.InStateFormView, name='In State')
+    path('question_7/', views.InStateFormView, name='In State'),
+    path('question_8', views.PopulationFormView, name='Population')
 ]
