@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% load static %}
+    <img src="{% static 'home/hat_hat.png' %}" alt="My image" width="400" height="300">
     {% load account %}
     <p>
     {% if user.is_authenticated %}
