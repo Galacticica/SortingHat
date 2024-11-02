@@ -22,7 +22,7 @@ class Major(models.Model):
 
 class College(models.Model):
     name = models.CharField(max_length=255)
-    price = models.CharField(max_length=255, blank=True)
+    price = models.IntegerField(blank=True)
     activities = models.ManyToManyField(Activity, related_name='schools_activities', blank=True)
     majors = models.ManyToManyField(Major, related_name='schools_majors', blank=True)
     population = models.BigIntegerField()
