@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% load account %}
+    <p>
+    {% if user.is_authenticated %}
+        {% user_display user %}
+        <a href="{% url 'account_logout' %}">Log Out</a>
+    {% else %}
+        Guest
+        <a href="{% url 'account_login' %}">Log In</a>
+    {% endif %}
+    </p>
+
+
+    <h2><a href='{% url "Major" %}'>Start Questionnaire</a></h2>
+</body>
+</html>
