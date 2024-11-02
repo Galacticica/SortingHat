@@ -34,3 +34,28 @@ def filter_by_location(colleges, user_response):
     return colleges
 
 
+def matching_majors(request, college):
+    offered_majors = [major.name for major in college.majors.all()]
+    user_response = get_user_response(request)
+    wanted_majors = user_response.majors
+    overlap = []
+    for major in offered_majors:
+        if major in wanted_majors:
+            overlap.append(major)
+    return overlap
+
+def matching_activities(request, college):
+    offered_activities = college.activities.all()
+    user_response = get_user_response(request)
+    wanted_activities = user_response.activity_cats
+    overlap = []
+    if 'Sports' in wanted_activities:
+        sports = offered_activities.filter(category='Sports')
+        overlap.extend(sports)
+    if 'Arts' in wanted_activities:
+        arts = offered_activities.filter(category='Arts')
+        overlap.extend(arts)
+    if 'Professional' in wanted_activities:
+        professional = offered_activities.filter(category='Professional')
+        overlap.extend(professional)
+    return overlap

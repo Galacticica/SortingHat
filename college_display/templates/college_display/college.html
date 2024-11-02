@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{college.name}}</h1>
+    <h3>Location: {{college.city}}, {{college.state}}</h3>
+    <h3>Yearly Tuition: {{price}}</h3>
+    <h3>Student Population: {{population}}</h3>
+    <h5>{{college.name}} has top performing programs for these majors that you marked being interested in:
+        {% for major in majors %}
+        <li>{{major}}</li>
+        {% endfor %}
+    </h5>
+    <h5>{{college.name}} offers these activities you indicated you might be interested in:
+        {% for activity in activities %}
+        <li>{{activity}}</li>
+        {% endfor %}
+    </h5>
+</body>
+</html>
