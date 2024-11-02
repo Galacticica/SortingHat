@@ -3,7 +3,7 @@ from .models import Activity, Major, PriceRange, College
 # Register your models here.
 
 class CollegeAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug" : ("name", "location")}
+    prepopulated_fields = {"slug" : ("name", "state")}
 
 admin.site.register(PriceRange)
 admin.site.register(Activity)
