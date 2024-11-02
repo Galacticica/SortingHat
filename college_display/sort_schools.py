@@ -1,6 +1,8 @@
 from .models import College
 from user_survey.models import UserResponse
 from user_survey.helpers import get_user_response
+from django.db.models import Q
+
 
 
 def match(request):
@@ -13,7 +15,7 @@ def match(request):
     return colleges
 
 def filter_by_major(colleges, user_response):
-    colleges = colleges.filter(majors__name__in=user_response.majors)
+    colleges.filter(Q(majors__name__in=user_response.majors)).distinct()
     return colleges
 
 def filter_by_price(colleges, user_response):
